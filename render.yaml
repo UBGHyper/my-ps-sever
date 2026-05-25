@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: pokemon-showdown
+    runtime: node
+    plan: free
+    region: singapore
+    buildCommand: npm install && node build
+    startCommand: node pokemon-showdown $PORT
+    healthCheckPath: /
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NODE_VERSION
+        value: "22"
